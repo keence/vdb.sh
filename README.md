@@ -3,12 +3,21 @@
 
 自动根据av号和标题在 ～/视频 下分类保存，方便管理查找、自动同步
 
-使用前先添加执行权限
 
-格式 ./vdb.sh [网址或者av号]  [分辨率]
+前置设置：
 
-例如：./vdb.sh https://www.bilibili.com/video/av44596341 720
+在～目录下执行： git clone https://github.com/keence/vdb.sh.git
 
-或者：./vdb.sh av47717798
+编辑～/.bashrc文件，在对应位置添加：  alias vdb='bash /home/usr/vdb.sh/vdb.sh'
 
-不带分辨率执行默认选项
+编辑完成后需注销登录生效，或者执行 alias vdb='bash /home/usr/vdb.sh/vdb.sh'
+
+使用：
+
+格式 vdb [网址或者av号]  [分辨率]
+
+例如：vdb https://www.bilibili.com/video/av44596341 720
+
+或者：vdb av47717798
+
+不带分辨率执行you-get默认选项
