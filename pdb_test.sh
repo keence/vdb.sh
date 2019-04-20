@@ -1,7 +1,7 @@
 #！/bin/bash
 #author：九月(keence)
 
-str=$(curl "https://search.bilibili.com/all?keyword=av49856767")
+str=$(curl "https://search.bilibili.com/all?keyword=av49563991")
 #echo "$str" > /tmp/tmp2
 tmp1=${str#*'","description"'}
 #echo "$tmp1" > /tmp/tmp1
