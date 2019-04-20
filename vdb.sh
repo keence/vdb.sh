@@ -17,6 +17,8 @@ str=${str#*title:}
 str=${str%streams*}
 #去空格
 str=$(echo $str | sed s/[[:space:]]//g)
+#转换特殊字符
+str=${str//'/'/'-'}
 #开始下载
 echo ""
 echo "将开始下载：https://www.bilibili.com/video/$web"
