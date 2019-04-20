@@ -28,8 +28,8 @@ you-get "https://www.bilibili.com/video/$web" -o ~/视频/【${video}】${str} -
 #保存命令返回值
 result=$?
 #返回值判断
-while [ $result != 0 ]
-do
+if [ $result != 0 ]
+then
 case $result in
 2)
 while [ $result == 2 ]
@@ -50,7 +50,28 @@ done
 echo "未统计错误：$result"
 result=0
 esac
-done
+else
+echo ""
+echo "将开始下载封面："
+echo “”
+str1=$(curl "https://search.bilibili.com/all?keyword=$video")
+tmp1=${str1#*'","description"'}
+tmp2=${str1%'u002Farchive\u002F'*}
+str1=${str1%"$tmp1"}
+str1=${str1#"$tmp2"}
+str1=${str1##*u002F}
+str1=${str1%%'"'*}
+cd ~/视频/【${video}】${str}
+wget https://i2.hdslb.com/bfs/archive/$str1
+if [ $? != 0 ]
+then
+echo "获取封面地址失败"
+else
+tmp1=${str1#*.}
+tmp2=${str1%.*}
+mv "${tmp2}.${tmp1}" "${str}.${tmp1}"
+fi
+fi
 else
 echo "请检查网址或者网络链接"
 fi
