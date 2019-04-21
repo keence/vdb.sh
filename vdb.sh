@@ -3,7 +3,8 @@
 
 video=$1
 web=${video#*/video/}
-video=${web%/?*}
+web=${web%'?f'*}
+video=${web%'/'*}
 resolution=$2
 #获取作为目录名的字符串
 str=$(you-get -i https://www.bilibili.com/video/$web)
@@ -53,7 +54,7 @@ esac
 else
 echo ""
 echo "将开始下载封面："
-echo “”
+echo ""
 str1=$(curl "https://search.bilibili.com/all?keyword=$video")
 tmp1=${str1#*'","description"'}
 tmp2=${str1%'u002Farchive\u002F'*}
@@ -61,7 +62,7 @@ str1=${str1%"$tmp1"}
 str1=${str1#"$tmp2"}
 str1=${str1##*u002F}
 str1=${str1%%'"'*}
-cd ~/视频/【${video}】${str}
+cd /tmp
 wget https://i2.hdslb.com/bfs/archive/$str1
 if [ $? != 0 ]
 then
@@ -70,6 +71,7 @@ else
 tmp1=${str1#*.}
 tmp2=${str1%.*}
 mv "${tmp2}.${tmp1}" "${str}.${tmp1}"
+mv "${str}.${tmp1}" ~/视频/【${video}】${str}
 fi
 fi
 else
