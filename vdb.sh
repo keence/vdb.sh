@@ -10,6 +10,7 @@ resolution=$2
 str=$(you-get -i https://www.bilibili.com/video/$web)
 #保存命令返回值
 result=$?
+tmp="$str"
 if [ $result == 0 ]
 then
 #掐头
@@ -37,7 +38,7 @@ while [ $result == 2 ]
 do
 echo "默认或选择分辨率格式无效。将打印格式信息："
 sleep 3s
-you-get -i https://www.bilibili.com/video/$web
+echo "$tmp"
 read -p "选择格式format(完整输入）：" format
 echo ""
 echo "将开始下载：https://www.bilibili.com/video/$web"
