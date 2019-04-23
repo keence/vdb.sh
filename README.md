@@ -1,7 +1,8 @@
 # vdb.sh
 **适配B站的you-get脚本**
 
-自动根据av号和标题在 ～/视频 下分类保存，方便管理查找、自动同步。详细说明[博客](https://blog.lolicon.world/?p=92)
+自动根据av号和标题在 ～/视频 下分类保存，方便管理查找、自动同步。详细说明[博客](https://blog.lolicon.world/?p=92)  
+[更新日志](https://github.com/keence/vdb.sh/blob/master/update_info.md)
 
 ---
 
