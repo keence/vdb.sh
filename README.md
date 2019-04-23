@@ -15,23 +15,26 @@
 
 ---
 
-**19.4.20更新：**
-
-添加视频封面下载（但愿封面地址插入值不是随机的(;¬_¬)
-
----
-
 **前置设置：**
 
-安装you-get
+安装you-get git
 
 在～目录下执行： `git clone https://github.com/keence/vdb.sh.git`  
-编辑～/.bashrc文件，在对应位置添加：  `alias vdb='bash ~/vdb.sh/vdb.sh'`  
-编辑完成后需注销登录生效，或者执行 `alias vdb='bash ~/vdb.sh/vdb.sh'`  
+编辑～/.bashrc文件，在对应位置添加：  `alias vdb='bash ~/vdb.sh/vdb.sh'`与`alias pdb='bash ~/vdb.sh/pdb.sh'`
+编辑完成后需注销登录生效，或者执行 `alias vdb='bash ~/vdb.sh/vdb.sh'`与`alias pdb='bash ~/vdb.sh/pdb.sh'`
 
 **使用：**
 
+封面下载：  
+格式：pdb [av号]  
+例如：`pdb av1212781`  
+单独使用下载封面时：  
+1.暂不支持完整网址  
+2.图片将以av号作为文件名，保存至~/图片/B站/  
+
+视频下载：
 格式 vdb [网址或者av号]  [分辨率]  
 例如：`vdb https://www.bilibili.com/video/av44596341 720`  
 或者：`vdb av47717798`  
-不带分辨率执行you-get默认的最高分辨率。分辨率可选项：720、480、360
+不带分辨率执行you-get默认的最高分辨率。分辨率可选项：720、480、360  
+封面图片将与视频同名保存至同目录
