@@ -5,6 +5,7 @@ video=$1
 web=${video#*/video/}
 web=${web%'?f'*}
 video=${web%'/'*}
+video=${video%'?'*}
 resolution=$2
 #获取作为目录名的字符串
 str=$(you-get -i https://www.bilibili.com/video/$web)
