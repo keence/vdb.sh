@@ -11,6 +11,7 @@ resolution=$2
 str=$(you-get -i https://www.bilibili.com/video/$web)
 #保存命令返回值
 result=$?
+tmp="$str"
 if [ $result == 0 ]
 then
 #掐头
@@ -34,15 +35,23 @@ if [ $result != 0 ]
 then
 case $result in
 2)
-echo "尝试更换格式下载"
-you-get "https://www.bilibili.com/video/$web" -o ~/视频/【${video}】${str} --format=flv$resolution
+while [ $result == 2 ]
+do
+echo "默认或选择分辨率格式无效。将打印格式信息："
+sleep 3s
+echo "$tmp"
+read -p "选择格式format(完整输入）：" format
+echo ""
+echo "将开始下载：https://www.bilibili.com/video/$web"
+echo "将保存到目录：~/视频/【${video}】${str}"
+echo ""
+you-get "https://www.bilibili.com/video/$web" -o ~/视频/【${video}】${str} --format=$format
 result=$?
 if [ $result == 0 ]
 then
 bash ~/vdb.sh/pdb.sh "$video" "$str"
-else
-echo "无选择的格式$resolution"
 fi
+done
 ;;
 *)
 echo "未统计错误：$result"
