@@ -35,7 +35,8 @@ then
 case $result in
 2)
 echo "尝试更换格式下载"
-you-get "https://www.bilibili.com/video/$web" -o ~/视频/【${video}】${str} --format=flv$resolution
+#you-get "https://www.bilibili.com/video/$web" -o ~/视频/【${video}】${str} --format=flv$resolution
+you-get "https://www.bilibili.com/video/$web" -o ~/视频/【${video}】${str}
 result=$?
 if [ $result == 0 ]
 then
